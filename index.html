@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>رأيك يهمنا | Native</title>
+<meta name="description" content="شاركنا رأيك في سيشن Native — 5 أسئلة سريعة.">
+<meta property="og:title" content="رأيك يهمنا 💬 | Native">
+<meta property="og:description" content="5 أسئلة سريعة — دقيقة واحدة بس، ورأيك هيفرق في السيشن الجاية.">
+<meta name="theme-color" content="#0a335b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a335b; --navy-2:#072540; --sky:#5fa9c0; --sky-soft:#e6f3f7; --yellow:#fbb400;
+  --ink:#0a335b; --muted:#5a7690; --line:#d9e6ef; --card:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{
+  font-family:'Cairo',sans-serif;color:var(--ink);min-height:100vh;
+  background:
+    radial-gradient(900px 520px at 85% -10%, rgba(95,169,192,.35), transparent 65%),
+    radial-gradient(700px 480px at -10% 110%, rgba(95,169,192,.22), transparent 65%),
+    linear-gradient(135deg,#0d3d6b 0%,#0a335b 45%,#06213d 100%);
+  background-attachment:fixed;
+  display:flex;flex-direction:column;align-items:center;
+  padding:28px 16px 24px;overflow-x:hidden;
+}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.08) 1.4px,transparent 1.5px);background-size:26px 26px;
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 70%);mask-image:linear-gradient(180deg,#000,transparent 70%)}
+.ring{position:fixed;border-radius:50%;pointer-events:none}
+.ring.a{width:520px;height:520px;left:-220px;top:-200px;border:2px solid rgba(95,169,192,.28)}
+.ring.b{width:360px;height:360px;right:-160px;bottom:-160px;border:2px solid rgba(251,180,0,.25)}
+.en{font-family:'Poppins',sans-serif;direction:ltr;unicode-bidi:isolate}
+.wrap{width:100%;max-width:560px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;min-height:34px}
+.tag{display:inline-flex;align-items:center;gap:8px;background:rgba(251,180,0,.14);border:1.5px solid rgba(251,180,0,.5);
+  color:var(--yellow);font-weight:700;font-size:14px;padding:4px 14px;border-radius:999px}
+.tag i{width:7px;height:7px;border-radius:50%;background:var(--yellow);display:block}
+.count{color:rgba(255,255,255,.75);font-family:'Poppins';font-size:14px;font-weight:500;opacity:0;transition:opacity .4s}
+.count.show{opacity:1}
+.progress{display:flex;gap:6px;margin-bottom:18px;opacity:0;transition:opacity .4s}
+.progress.show{opacity:1}
+.progress span{flex:1;height:6px;border-radius:99px;background:rgba(255,255,255,.16);overflow:hidden;position:relative}
+.progress span::after{content:"";position:absolute;inset:0;background:var(--yellow);border-radius:99px;transform:scaleX(0);transform-origin:right;transition:transform .5s ease}
+.progress span.done::after{transform:scaleX(1)}
+.stage{position:relative;flex:1}
+.screen{display:none;animation:fadeIn .55s ease both}
+.screen.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero{text-align:center;color:#fff;padding:36px 8px 10px}
+.hero .badge{width:84px;height:84px;margin:0 auto 22px;border-radius:26px;background:var(--sky);display:grid;place-items:center;font-size:40px;
+  box-shadow:0 18px 40px rgba(0,0,0,.3);transform:rotate(-8deg);animation:float 5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:rotate(-8deg) translateY(0)}50%{transform:rotate(-4deg) translateY(-8px)}}
+.hero h1{font-weight:900;font-size:56px;line-height:1.15}
+.hero h1 b{color:var(--yellow);font-weight:900}
+.hero .sub-en{color:#9fd3e3;font-size:17px;margin-top:8px}
+.hero p{color:rgba(255,255,255,.82);font-size:18px;margin:14px auto 0;max-width:420px;line-height:1.8}
+.hero .meta{display:flex;justify-content:center;gap:10px;margin:26px 0 30px;flex-wrap:wrap}
+.chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;font-size:14px;padding:6px 14px;border-radius:999px}
+.card{background:var(--card);border-radius:28px;padding:30px 26px 26px;box-shadow:0 30px 70px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;right:0;left:0;height:6px;background:linear-gradient(90deg,var(--yellow),var(--sky))}
+.qhead{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.qicon{width:52px;height:52px;border-radius:16px;background:var(--sky-soft);display:grid;place-items:center;font-size:26px;flex:none}
+.qnum{font-size:13px;font-weight:700;color:var(--sky);letter-spacing:.3px}
+.qnum{display:flex;align-items:center;gap:8px}.qnum .dot{width:4px;height:4px;border-radius:50%;background:#b9cbd8}
+.qnum .en{font-size:12px;color:var(--muted);font-weight:500}
+.card h2{font-weight:800;font-size:23px;line-height:1.55}
+.card .qen{color:var(--muted);font-size:14.5px;margin-top:4px;line-height:1.6;text-align:right}
+.scale{display:flex;gap:10px;margin:26px 0 10px}
+.ends{margin-bottom:6px}
+.scale button{flex:1;aspect-ratio:1/1;max-height:76px;border-radius:18px;border:2px solid var(--line);background:#f5f8fb;
+  font-family:'Poppins';font-weight:600;font-size:24px;color:var(--navy);cursor:pointer;
+  transition:transform .25s ease,background .25s,border-color .25s,box-shadow .25s;position:relative}
+.scale button:hover{transform:translateY(-3px);border-color:var(--sky)}
+.scale button.on{background:var(--yellow);border-color:var(--yellow);transform:translateY(-6px) scale(1.06);box-shadow:0 14px 26px rgba(251,180,0,.4)}
+.ends{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);line-height:1.5;gap:12px}
+.ends div{max-width:48%}
+.ends div:last-child{text-align:left}
+.ends .en{display:block;font-size:11.5px;opacity:.85}
+textarea{width:100%;min-height:150px;margin-top:22px;border:2px solid var(--line);border-radius:18px;padding:14px 16px;
+  font-family:'Cairo';font-size:16px;color:var(--navy);background:#f8fbfd;resize:vertical;transition:border-color .25s, box-shadow .25s;line-height:1.7}
+textarea:focus{outline:none;border-color:var(--sky);box-shadow:0 0 0 4px rgba(95,169,192,.18);background:#fff}
+textarea::placeholder{color:#9db1c2}
+.opt{font-size:13px;color:var(--muted);margin-top:8px}
+.nav{display:flex;gap:10px;margin-top:22px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:none;border-radius:16px;font-family:'Cairo';font-weight:800;font-size:17px;padding:14px 22px;cursor:pointer;transition:transform .2s, box-shadow .25s, opacity .25s, background .25s}
+.btn.primary{flex:1;background:var(--navy);color:#fff;box-shadow:0 10px 22px rgba(10,51,91,.25)}
+.btn.primary:hover{transform:translateY(-2px)}
+.btn.primary:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none}
+.btn.ghost{background:transparent;color:var(--muted);padding:14px 10px}
+.btn.ghost:hover{color:var(--navy)}
+.btn.start{background:var(--yellow);color:var(--navy);font-size:19px;padding:16px 46px;box-shadow:0 16px 34px rgba(251,180,0,.35)}
+.btn.start:hover{transform:translateY(-3px)}
+.btn .en{font-weight:500;font-size:13px;opacity:.75}
+.err{color:#c0392b;font-size:14px;margin-top:10px;display:none}
+.thanks{text-align:center}
+.thanks .big{font-size:58px;margin-bottom:6px;display:inline-block;animation:pop .7s ease both}
+@keyframes pop{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+.thanks h2{font-size:30px;font-weight:900}
+.thanks .qen{text-align:center}
+.rec{margin-top:22px;background:var(--sky-soft);border-radius:20px;padding:20px 18px;text-align:center}
+.rec p{font-weight:700;font-size:16.5px;line-height:1.8}
+.rec a{display:inline-flex;align-items:center;gap:10px;margin-top:14px;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;padding:12px 26px;border-radius:14px;transition:transform .2s}
+.rec a:hover{transform:translateY(-2px)}
+.bye{margin-top:20px;font-weight:800;font-size:18px}
+.yt{margin-top:16px;border:2px dashed #f3c4c4;border-radius:20px;padding:18px;text-align:center;background:#fff8f8}
+.yt p{font-weight:700;font-size:16px;line-height:1.8}
+.yt small{display:block;color:var(--muted);font-size:13.5px;margin-top:2px}
+.yt a{display:inline-flex;align-items:center;gap:10px;margin-top:12px;background:#e62117;color:#fff;text-decoration:none;font-weight:800;padding:11px 24px;border-radius:14px;transition:transform .2s}
+.yt a:hover{transform:translateY(-2px)}
+.yt a svg{width:22px;height:22px}
+.spark{position:absolute;color:var(--yellow);animation:twinkle 2.4s ease-in-out infinite;pointer-events:none}
+@keyframes twinkle{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.1)}}
+.foot{text-align:center;color:rgba(255,255,255,.45);font-family:'Poppins';font-size:12px;letter-spacing:2px;margin-top:26px}
+@media (max-width:420px){
+  .hero h1{font-size:46px}
+  .card{padding:26px 18px 20px;border-radius:24px}
+  .card h2{font-size:20px}
+  .scale{gap:7px}
+  .scale button{font-size:20px;border-radius:14px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="ring a"></div><div class="ring b"></div>
+<div class="wrap">
+  <div class="top">
+    <div class="tag"><i></i>استبيان بعد السيشن</div>
+    <div class="count" id="count"></div>
+  </div>
+  <div class="progress" id="progress"></div>
+  <div class="stage" id="stage"></div>
+  <div class="foot">WWW.NATIVE-CAREER.COM</div>
+</div>
+<script>
+var ENDPOINT = "https://script.google.com/macros/s/AKfycbwuGrEhknE76PChoKIlu6TyW4w1IIAx6nRfyBB3QhRVinmRMVYAm_KEqGhD4wuW7tH5aQ/exec";
+var CONFIG = {
+  session: (new URLSearchParams(location.search).get("s") || "").slice(0,60),
+  recordingUrl: "",
+  recordingText: "",
+  channelUrl: "https://www.youtube.com/@nativecareer-27"
+};
+var QUESTIONS = [
+  {id:"topic", type:"scale", icon:"📚",
+   ar:"من 1 لـ 5، إيه رأيك في موضوع السيشن؟",
+   en:"Rate how useful the session topic was for you (1–5).",
+   low:["مش مفيد ليا","Not useful at all"], high:["مفيد جدًا","Very useful"]},
+  {id:"presenter", type:"scale", icon:"🎤",
+   ar:"من 1 لـ 5، إيه رأيك في الـ Presenter اللي قدّم السيشن؟",
+   en:"Rate how clear the presenter’s explanations were (1–5).",
+   low:["مش واضح خالص","Not clear at all"], high:["واضح جدًا","Very clear"]},
+  {id:"recommend", type:"scale", icon:"🤝",
+   ar:"هل ممكن ترشّح سيشنز Native لحد من صحابك؟",
+   en:"Rate how likely you are to recommend Native’s sessions to a friend (1–5).",
+   low:["مش هرشّحها","Wouldn’t recommend"], high:["أكيد هرشّحها","Definitely would"]},
+  {id:"feedback", type:"text", icon:"💬",
+   ar:"إيه اللي عجبك في السيشن، وإيه اللي ممكن نحسّنه؟",
+   en:"What did you like about the session, and what could we improve?",
+   ph:"شاركنا رأيك هنا…\nShare your thoughts here…"},
+  {id:"next", type:"text", icon:"💡",
+   ar:"تحب نتكلم عن إيه في السيشن الجاية؟",
+   en:"What would you like us to cover in the next session?",
+   ph:"مثلًا: التحضير للإنترفيو، تحسين بروفايل LinkedIn، أو أول 90 يوم في الشغل…\nFor example: interview prep, improving your LinkedIn profile, or your first 90 days at work…"}
+];
+var answers = {}; var step = -1; var sending = false;
+var stage = document.getElementById('stage');
+var progress = document.getElementById('progress');
+var count = document.getElementById('count');
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function renderProgress(){
+  progress.innerHTML = QUESTIONS.map(function(_,i){return '<span class="'+(i<=step?'done':'')+'"></span>'}).join('');
+  var inQ = step>=0 && step<QUESTIONS.length;
+  progress.classList.toggle('show', inQ);
+  count.classList.toggle('show', inQ);
+  if(inQ) count.innerHTML = '<span class="en">'+(step+1)+' / '+QUESTIONS.length+'</span>';
+}
+function show(html){
+  stage.innerHTML = '<div class="screen active">'+html+'</div>';
+  renderProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function intro(){
+  step = -1;
+  show(
+    '<div class="hero">'+
+      '<div class="badge">💬</div>'+
+      '<h1>رأيك <b>يهمنا</b></h1>'+
+      '<div class="sub-en en">Your feedback shapes our next session</div>'+
+      '<p>إيه أكتر حاجة استفدت منها؟ وإيه اللي تحب نطوّره في السيشنز الجاية؟</p>'+
+      '<div class="meta"><span class="chip">⏱ دقيقة واحدة</span><span class="chip">5 أسئلة</span></div>'+
+      '<button class="btn start" onclick="go(0)">يلا نبدأ<span class="en">Start</span></button>'+
+    '</div>'
+  );
+}
+function go(i){ step=i; question(); }
+function question(){
+  var q = QUESTIONS[step]; var last = step===QUESTIONS.length-1;
+  var head =
+    '<div class="qhead"><div class="qicon">'+q.icon+'</div>'+
+    '<div class="qnum"><bdi>سؤال '+(step+1)+'</bdi><i class="dot"></i><span class="en">Question '+(step+1)+'</span></div></div>'+
+    '<h2>'+esc(q.ar)+'</h2><div class="qen en">'+esc(q.en)+'</div>';
+  var body='';
+  if(q.type==='scale'){
+    var v = answers[q.id];
+    body = '<div class="scale" role="radiogroup">'+[1,2,3,4,5].map(function(n){
+        return '<button type="button" role="radio" aria-checked="'+(v===n)+'" class="'+(v===n?'on':'')+'" onclick="pick('+n+')">'+n+'</button>'}).join('')+'</div>'+
+      '<div class="ends"><div>1 = '+esc(q.low[0])+'<span class="en">'+esc(q.low[1])+'</span></div>'+
+      '<div>5 = '+esc(q.high[0])+'<span class="en">'+esc(q.high[1])+'</span></div></div>';
+  } else {
+    body = '<textarea id="ta" placeholder="'+esc(q.ph)+'">'+esc(answers[q.id]||'')+'</textarea>'+
+      '<div class="opt">اختياري · <span class="en">Optional</span></div>';
+  }
+  var nextLabel = last ? 'ابعت رأيك<span class="en">Submit</span>' : 'التالي<span class="en">Next</span>';
+  var disabled = (q.type==='scale' && !answers[q.id]) ? ' disabled' : '';
+  var nav = '<div class="nav">'+
+      '<button class="btn primary" id="next"'+disabled+' onclick="next()">'+nextLabel+'</button>'+
+      (step>0?'<button class="btn ghost" onclick="back()">رجوع</button>':'')+
+    '</div><div class="err" id="err">حصلت مشكلة في الإرسال، جرّب تاني.</div>';
+  show('<div class="card">'+head+body+nav+'</div>');
+  if(q.type==='text'){ var ta=document.getElementById('ta'); ta.addEventListener('input',function(){answers[q.id]=ta.value}); }
+}
+function pick(n){
+  var q = QUESTIONS[step]; answers[q.id]=n;
+  document.querySelectorAll('.scale button').forEach(function(b,i){b.classList.toggle('on',i+1===n);b.setAttribute('aria-checked',i+1===n)});
+  document.getElementById('next').disabled=false;
+}
+function back(){ if(step>0){ step--; question(); } }
+function next(){
+  if(step < QUESTIONS.length-1){ step++; question(); return; }
+  submit();
+}
+function submit(){
+  if(sending) return; sending=true;
+  var btn=document.getElementById('next'); btn.disabled=true; btn.innerHTML='بيتبعت…';
+  var payload = {session:CONFIG.session||'', topic:answers.topic||'', presenter:answers.presenter||'', recommend:answers.recommend||'',
+    feedback:(answers.feedback||'').trim(), next:(answers.next||'').trim()};
+  var ok=function(){ sending=false; thanks(); };
+  var fail=function(){ sending=false; btn.disabled=false; btn.innerHTML='ابعت رأيك<span class="en">Submit</span>'; document.getElementById('err').style.display='block'; };
+  fetch(ENDPOINT,{method:'POST',mode:'no-cors',credentials:'omit',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)}).then(ok).catch(fail);
+}
+function thanks(){
+  step = QUESTIONS.length;
+  var rec = CONFIG.recordingUrl ?
+    '<div class="rec"><p>🎥 '+esc(CONFIG.recordingText)+'</p>'+
+    '<a href="'+esc(CONFIG.recordingUrl)+'" target="_blank" rel="noopener">▶ شوف الريكورد <span class="en" style="font-weight:500;opacity:.8">Watch</span></a></div>' : '';
+  var yt = CONFIG.channelUrl ?
+    '<div class="yt"><p>كل سيشنز Native بتنزل على قناتنا على YouTube</p>'+
+    '<small>اعمل Subscribe عشان يوصلك كل جديد.</small>'+
+    '<a href="'+esc(CONFIG.channelUrl)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.4 3.1z"/></svg>تابعنا على YouTube</a></div>' : '';
+  show(
+    '<div class="card thanks">'+
+      '<span class="spark" style="top:26px;right:34px;font-size:22px">✦</span>'+
+      '<span class="spark" style="top:70px;left:30px;font-size:16px;animation-delay:.8s">✦</span>'+
+      '<div class="big">🙏</div>'+
+      '<h2>شكرًا على وقتك</h2>'+
+      '<div class="qen en">Thank you for your time!</div>'+
+      rec+ yt +
+      '<div class="bye">نشوفك في السيشن الجاية 💙</div>'+
+    '</div>'
+  );
+  progress.classList.remove('show'); count.classList.remove('show');
+}
+intro();
+</script>
+</body>
+</html>
