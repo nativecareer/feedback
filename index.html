@@ -112,6 +112,10 @@ textarea::placeholder{color:#9db1c2}
 .yt a{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:#e62117;color:#fff;text-decoration:none;font-weight:800;padding:11px 24px;border-radius:14px;transition:transform .2s}
 .yt a:hover{transform:translateY(-2px)}
 .yt a svg{width:22px;height:22px}
+.site{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:var(--navy);font-weight:800;font-size:15px;text-decoration:none;padding:8px 18px;border:2px solid var(--line);border-radius:999px;transition:border-color .2s,transform .2s}
+.site:hover{border-color:var(--navy);transform:translateY(-2px)}
+.site svg{width:18px;height:18px}
+.thanks .bye{margin-bottom:14px}
 .spark{position:absolute;color:var(--yellow);animation:twinkle 2.4s ease-in-out infinite;pointer-events:none}
 @keyframes twinkle{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.1)}}
 .foot{text-align:center;color:rgba(255,255,255,.45);font-family:'Poppins';font-size:12px;letter-spacing:2px;margin-top:26px}
@@ -253,6 +257,8 @@ function thanks(){
     '<div class="yt"><p>كل سيشنز Native بتنزل<br>على قناتنا على YouTube</p>'+
     '<small>اعمل Subscribe عشان يوصلك كل جديد.</small>'+
     '<a href="'+esc(CONFIG.channelUrl)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.4 3.1z"/></svg>تابعنا على YouTube</a></div>' : '';
+  var web =
+    '<a class="site" href="https://www.native-career.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span class="en">Visit our Website</span></a>';
   show(
     '<div class="card thanks">'+
       '<span class="spark" style="top:26px;right:34px;font-size:22px">✦</span>'+
@@ -260,7 +266,7 @@ function thanks(){
       '<div class="big">🙏</div>'+
       '<h2>شكرًا على وقتك</h2>'+
       '<div class="qen en">Thank you for your time!</div>'+
-      rec+ yt +
+      rec+ yt + web +
       '<div class="bye">نشوفك في السيشن الجاية 💙</div>'+
     '</div>'
   );
