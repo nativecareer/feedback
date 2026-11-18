@@ -105,11 +105,11 @@ textarea::placeholder{color:#9db1c2}
 .rec p{font-weight:700;font-size:16.5px;line-height:1.8}
 .rec a{display:inline-flex;align-items:center;gap:10px;margin-top:14px;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;padding:12px 26px;border-radius:14px;transition:transform .2s}
 .rec a:hover{transform:translateY(-2px)}
-.bye{margin-top:20px;font-weight:800;font-size:18px}
-.yt{margin-top:16px;border:2px dashed #f3c4c4;border-radius:20px;padding:18px;text-align:center;background:#fff8f8}
-.yt p{font-weight:700;font-size:16px;line-height:1.8}
-.yt small{display:block;color:var(--muted);font-size:13.5px;margin-top:2px}
-.yt a{display:inline-flex;align-items:center;gap:10px;margin-top:12px;background:#e62117;color:#fff;text-decoration:none;font-weight:800;padding:11px 24px;border-radius:14px;transition:transform .2s}
+.bye{margin-top:24px;font-weight:800;font-size:18px}
+.yt{margin-top:22px;border:2px dashed #f3c4c4;border-radius:20px;padding:22px 20px 24px;text-align:center;background:#fff8f8}
+.yt p{font-weight:800;font-size:16px;line-height:1.6;text-wrap:balance;max-width:300px;margin:0 auto}
+.yt small{display:block;color:var(--muted);font-size:14px;margin-top:8px;line-height:1.6}
+.yt a{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:#e62117;color:#fff;text-decoration:none;font-weight:800;padding:11px 24px;border-radius:14px;transition:transform .2s}
 .yt a:hover{transform:translateY(-2px)}
 .yt a svg{width:22px;height:22px}
 .spark{position:absolute;color:var(--yellow);animation:twinkle 2.4s ease-in-out infinite;pointer-events:none}
@@ -250,7 +250,7 @@ function thanks(){
     '<div class="rec"><p>🎥 '+esc(CONFIG.recordingText)+'</p>'+
     '<a href="'+esc(CONFIG.recordingUrl)+'" target="_blank" rel="noopener">▶ شوف الريكورد <span class="en" style="font-weight:500;opacity:.8">Watch</span></a></div>' : '';
   var yt = CONFIG.channelUrl ?
-    '<div class="yt"><p>كل سيشنز Native بتنزل على قناتنا على YouTube</p>'+
+    '<div class="yt"><p>كل سيشنز Native بتنزل<br>على قناتنا على YouTube</p>'+
     '<small>اعمل Subscribe عشان يوصلك كل جديد.</small>'+
     '<a href="'+esc(CONFIG.channelUrl)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.4 3.1z"/></svg>تابعنا على YouTube</a></div>' : '';
   show(
