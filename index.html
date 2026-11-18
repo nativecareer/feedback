@@ -115,6 +115,8 @@ textarea::placeholder{color:#9db1c2}
 .spark{position:absolute;color:var(--yellow);animation:twinkle 2.4s ease-in-out infinite;pointer-events:none}
 @keyframes twinkle{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.1)}}
 .foot{text-align:center;color:rgba(255,255,255,.45);font-family:'Poppins';font-size:12px;letter-spacing:2px;margin-top:26px}
+.foot a{color:inherit;text-decoration:none;transition:color .2s;padding:6px 4px}
+.foot a:hover{color:var(--yellow)}
 @media (max-width:420px){
   .hero h1{font-size:46px}
   .card{padding:26px 18px 20px;border-radius:24px}
@@ -134,7 +136,7 @@ textarea::placeholder{color:#9db1c2}
   </div>
   <div class="progress" id="progress"></div>
   <div class="stage" id="stage"></div>
-  <div class="foot">WWW.NATIVE-CAREER.COM</div>
+  <div class="foot"><a href="https://www.native-career.com" target="_blank" rel="noopener">WWW.NATIVE-CAREER.COM</a></div>
 </div>
 <script>
 var ENDPOINT = "https://script.google.com/macros/s/AKfycbwuGrEhknE76PChoKIlu6TyW4w1IIAx6nRfyBB3QhRVinmRMVYAm_KEqGhD4wuW7tH5aQ/exec";
