@@ -145,7 +145,7 @@ textarea::placeholder{color:#9db1c2}
 <script>
 var ENDPOINT = "https://script.google.com/macros/s/AKfycbwuGrEhknE76PChoKIlu6TyW4w1IIAx6nRfyBB3QhRVinmRMVYAm_KEqGhD4wuW7tH5aQ/exec";
 var CONFIG = {
-  session: (new URLSearchParams(location.search).get("s") || "").slice(0,60),
+  session: (new URLSearchParams(location.search).get("s") || "").replace(/[-_]+/g," ").trim().slice(0,60),
   recordingUrl: "",
   recordingText: "",
   channelUrl: "https://www.youtube.com/@nativecareer-27"
